@@ -1,0 +1,27 @@
+---
+
+name: lint
+
+on: [pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Master
+        uses: actions/checkout@master
+      - name: Install mdl
+        run: |
+          sudo apt-get install -y rubygems \
+              && sudo gem install mdl
+      - name: Install YAMLlint
+        run: |
+          sudo apt-get install -y python3-setuptools \
+              && sudo --set-home pip3 install wheel yamllint
+      - name: Lint Markdown files
+        run: |
+          mdl $(find . -type f \
+              \( -name "*.md" -o -name "*.markdown" \) \
+              )
+      - name: Lint YAML files
+        run: yamllint .

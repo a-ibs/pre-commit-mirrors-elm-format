@@ -1,0 +1,22 @@
+---
+
+repos:
+  - repo: https://github.com/adrienverge/yamllint.git
+    rev: v1.19.0
+    hooks:
+      - id: yamllint
+        files: \.(yaml|yml)$
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v2.4.0
+    hooks:
+      - id: check-added-large-files
+      - id: detect-aws-credentials
+      - id: detect-private-key
+      - id: end-of-file-fixer
+      - id: requirements-txt-fixer
+      - id: trailing-whitespace
+  - repo: https://github.com/jumanjihouse/pre-commit-hooks
+    rev: 1.11.0
+    hooks:
+      - id: markdownlint
+        files: \.(markdown|md)$
