@@ -7,4 +7,4 @@
   files: \.(elm)$
   args: []
   minimum_pre_commit_version: 0.6.7
-  additional_dependencies: ["elm-format@0.8.2"]
+  additional_dependencies: ["elm-format@0.8.7"]
